@@ -1,6 +1,6 @@
 <?php
 
-//This is my CONTROLLER for the hello project
+//This is my CONTROLLER
 
 //Turn on error reporting
 
@@ -14,7 +14,7 @@ require_once('vendor/autoload.php');
 $f3 = Base::instance();
 //Java equivalent -> Base f3 = new Base();
 
-// Define a default route ("Home page" for hello project)
+// Define a default route ("Home page" project)
 $f3->route('GET /', function(){
     //echo '<h1>Hello, Fat Free!</h1>';
     $view = new Template();
