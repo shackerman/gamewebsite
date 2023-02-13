@@ -1,97 +1,28 @@
-<!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<include href="views/header.html"></include>
+    <div>
+        <!-- credit to https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 -->
+        <img id="header-img" src="images/gamingwebsitefront.jpeg" alt="Home Page Header">
+    </div>
+    <div class="container-fluid text-center my-5">
+        <h2>Game Tracker</h2>
+        <p class="pt-3">Keeping track of YOUR games so YOU don't have to!</p>
+        <br>
+        <p id ="home-page-content">Welcome to our website, the ultimate destination for gamers and video game enthusiasts alike!
+            We showcase the best and latest games from all genres and platforms, providing detailed reviews and ratings for each game.
+            Our expert team of gaming enthusiasts works tirelessly to bring you the latest and most exciting games, ensuring that you never miss out on the best new releases.
 
-        <title>The most epic and cool gaming website ever</title>
-    
-        <link href="style.css" rel="stylesheet" type="text/css"/>
+            In addition to our comprehensive game reviews, we also provide a platform for our users to get involved and contribute to the site. You can create an account and submit your own game reviews,
+            or add your favorite games to our user-curated lists. Our discussion area is the perfect place to connect with other gamers, discuss the newest releases, and exchange tips and tricks.
 
-        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+            Whether you're a hardcore gamer or a casual player, we have something for everyone. Our site is designed to be intuitive and easy to use, so you can quickly find the games you're interested in and start playing right away.
+            Join our community of passionate gamers today and discover the best games on the market!
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://use.typekit.net/kir2pvu.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        </p>
 
-       <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
-        <!-- JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>    
-
-    </head>
-    <body>
-        <header>
-            <!--Responsive Offcanvas Navbar-->
-            <nav class="navbar navbar-expand-lg" style="background-color:rgba(187, 181, 181);">
-                <!-- <a class="navbar-brand"  href="index.html">
-                    <img src="walnut-ridge-images/wr-logo.png" alt="Walnut Ridge Rentals" width="220px" height="100px">
-                </a> -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
-                    <div class="offcanvas-header justify-content-end">
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body justify-content-end">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/sdev328/gamewebsite/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Game List</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="avail" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Platform
-                            </a>
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">PC</a></li>
-                              <li><a class="dropdown-item" href="#">PlayStation</a></li>
-                              <li><a class="dropdown-item" href="#">Xbox</a></li>
-                              <li><a class="dropdown-item" href="#">Nintendo</a></li>
-                            </ul>
-                          </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Login/Create Account</a>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-              </nav>
-            <div>
-                <!-- credit to https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 -->
-                <img id="header-img" src="images/gamingwebsitefront.jpeg" alt="Home Page Header">
-            </div>
-        </header>
-        <!-- End of Header -->
-        <div class="container-fluid text-center my-5">
-            <h2>Game Tracker</h2>
-            <p class="pt-3">Keeping track of YOUR games so YOU don't have to!</p>
-            <br>
-            <p id ="home-page-content">Welcome to our website, the ultimate destination for gamers and video game enthusiasts alike!
-                We showcase the best and latest games from all genres and platforms, providing detailed reviews and ratings for each game.
-                Our expert team of gaming enthusiasts works tirelessly to bring you the latest and most exciting games, ensuring that you never miss out on the best new releases.
-
-                In addition to our comprehensive game reviews, we also provide a platform for our users to get involved and contribute to the site. You can create an account and submit your own game reviews,
-                or add your favorite games to our user-curated lists. Our discussion area is the perfect place to connect with other gamers, discuss the newest releases, and exchange tips and tricks.
-
-                Whether you're a hardcore gamer or a casual player, we have something for everyone. Our site is designed to be intuitive and easy to use, so you can quickly find the games you're interested in and start playing right away.
-                Join our community of passionate gamers today and discover the best games on the market!
-
-            </p>
-
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/xYzGtuIYnZU" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/xYzGtuIYnZU" allowfullscreen></iframe>
 
 
-        </div>
-
-        
+    </div>
 
     </body>
 

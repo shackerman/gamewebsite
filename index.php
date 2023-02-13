@@ -21,6 +21,18 @@ $f3->route('GET /', function(){
     echo $view->render('views/home.html');
 });
 
+$f3->route('GET /homePage', function(){
+    //echo '<h1>application, Fat Free!</h1>';
+    $view = new Template();
+    echo $view->render('views/home.html');
+});
+
+$f3->route('GET /gameList', function(){
+    //echo '<h1>application, Fat Free!</h1>';
+    $view = new Template();
+    echo $view->render('views/gameList.html');
+});
+
 //Run Fat-Free
 $f3->run();
 //Java -> f3.run();
