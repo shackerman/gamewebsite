@@ -1,9 +1,12 @@
 <?php
-function getMeals() 
-{
-    return array(" breakfast", " lunch", " dinner", " dessert");
-}
-function getCondiments() 
-{
-    return array(" ketchup", " mustard", " sriracha");
+
+class DataLayer{
+    static function getMeals()
+    {
+        return array(" breakfast", " lunch", " dinner", " dessert");
+    }
+    static function getCondiments()
+    {
+        return array(" ketchup", " mustard", " sriracha");
+    }
 }

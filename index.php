@@ -10,27 +10,31 @@ error_reporting(E_ALL);
 //Require the autoload file
 require_once('vendor/autoload.php');
 
+//start session
+session_start();
+
 // Create an instance of the Base class
 $f3 = Base::instance();
 //Java equivalent -> Base f3 = new Base();
 
+//Instantiate a Controller object
+$con = new Controller($f3);
+
 // Define a default route ("Home page" project)
 $f3->route('GET /', function(){
-    //echo '<h1>Hello, Fat Free!</h1>';
-    $view = new Template();
-    echo $view->render('views/home.html');
+    $GLOBALS['con']->home();
 });
 
 $f3->route('GET /homePage', function(){
-    //echo '<h1>application, Fat Free!</h1>';
-    $view = new Template();
-    echo $view->render('views/home.html');
+    $GLOBALS['con']->home();
 });
 
 $f3->route('GET /gameList', function(){
-    //echo '<h1>application, Fat Free!</h1>';
-    $view = new Template();
-    echo $view->render('views/gameList.html');
+    $GLOBALS['con']->gameList();
+});
+
+$f3->route('GET /newUser', function(){
+    $GLOBALS['con']->newUser();
 });
 
 //Run Fat-Free
