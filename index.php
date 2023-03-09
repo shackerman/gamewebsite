@@ -33,8 +33,12 @@ $f3->route('GET /gameList', function(){
     $GLOBALS['con']->gameList();
 });
 
-$f3->route('GET /newUser', function(){
+$f3->route('GET|POST /newUser', function(){
     $GLOBALS['con']->newUser();
+});
+
+$f3->route('GET /logIn', function(){
+    $GLOBALS['con']->logIn();
 });
 
 //Run Fat-Free

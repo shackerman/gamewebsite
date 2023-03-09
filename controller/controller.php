@@ -24,12 +24,61 @@ class Controller
         echo $view->render('views/gameList.html');
     }
 
-    function newUSer()
+    function newUser()
     {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $user = new User();
+            $name = $_POST['name'];
+            $phone = $_POST['phone'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            if (Validate::validName($name)) {
+                $user->setName($name);
+            }
+            else {
+                $this->_f3->set('errors["name"]',
+                    'Please re-enter a valid name!');
+            }
+
+            if (Validate::validPhone($phone)) {
+                $name->setPhone($phone);
+            }
+            else {
+                $this->_f3->set('errors["phone"]',
+                    'Please re-enter a valid phone number!');
+            }
+
+            if (Validate::validEmail($email)) {
+                $name->setEmail($email);
+            }
+            else {
+                $this->_f3->set('errors["email"]',
+                    'Please re-enter a valid email!');
+            }
+            if (Validate::validPassword($password)) {
+                $user->setPhone($password);
+            }
+            else {
+                $this->_f3->set('errors["password"]',
+                    'Password must contain at lease 8 characters, one uppercase letter, one lowercase letter, and one number');
+            }
+            //Redirect to summary page
+            if (empty($this->_f3->get('errors'))) {
+                $_SESSION['applicant'] = $name;
+                $this->_f3->reroute('logIn');
+            }
+        }
         $view = new Template();
         echo $view->render('views/newUser.html');
     }
+
+    function logIn()
+    {
+        $view = new Template();
+        echo $view->render('views/logIn.html');
+    }
 //
+
 //    function summary()
 //    {
 //        //Write to Database
