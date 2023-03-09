@@ -41,7 +41,7 @@ class Controller
             }
 
             if (Validate::validPhone($phone)) {
-                $name->setPhone($phone);
+                $user->setPhone($phone);
             }
             else {
                 $this->_f3->set('errors["phone"]',
@@ -49,7 +49,7 @@ class Controller
             }
 
             if (Validate::validEmail($email)) {
-                $name->setEmail($email);
+                $user->setEmail($email);
             }
             else {
                 $this->_f3->set('errors["email"]',
@@ -64,7 +64,7 @@ class Controller
             }
             //Redirect to summary page
             if (empty($this->_f3->get('errors'))) {
-                $_SESSION['applicant'] = $name;
+                $_SESSION['user'] = $user;
                 $this->_f3->reroute('logIn');
             }
         }
