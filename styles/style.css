@@ -563,3 +563,32 @@ button:hover {
 .err{
     color: red;
 }
+
+
+/*css for the game list page
+
+ */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+li {
+    margin: 10px;
+    text-align: center;
+    max-width: 200px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.game-title {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
