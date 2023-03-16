@@ -11,6 +11,6 @@ Jeconiah Alferez-Ruiz, Ron Nguyen, Jerome Shadkim
 - 9: All code is clean, clear, and well-commented. DRY (Don't Repeat Yourself) is practiced.
 - 10: Your submission shows adequate effort for a final project in a full-stack web development course.
 - 11: BONUS:  Incorporates Ajax that access data from a JSON file, PHP script, or API. If you implement Ajax, be sure to include how you did so in your readme file.
-Your most current UML class diagram
-You most current ER database diagram
-Your admin login username and password, if applicable
+- Your most current UML class diagram
+- You most current ER database diagram
+- Your admin login username and password, if applicable
