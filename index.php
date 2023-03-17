@@ -24,6 +24,9 @@ $con = new Controller($f3);
 $f3->route('GET /', function(){
     $GLOBALS['con']->home();
 });
+$f3->route('GET /home2', function(){
+    $GLOBALS['con']->home2();
+});
 
 $f3->route('GET /homePage', function(){
     $GLOBALS['con']->home();

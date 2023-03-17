@@ -18,11 +18,6 @@ class Controller
         echo $view->render("views/home.html");
     }
 
-    function gameList()
-    {
-        $view = new Template();
-        echo $view->render('views/gameList.html');
-    }
 
     function newUser()
     {
@@ -32,6 +27,16 @@ class Controller
             $phone = $_POST['phone'];
             $email = $_POST['email'];
             $password = $_POST['password'];
+            $address = $_POST['stAddress'];
+            $city = $_POST['city'];
+            $zip = $_POST['zip'];
+            $cardNumber = $_POST['cardNumber'];
+            $expirationDate = $_POST['expiration'];
+            $cvv = $_POST['cvv'];
+            $_SESSION['name'] = $name;
+            $_SESSION['account'] = "Log In/Create Account";
+            $_SESSION['href'] = "newUser";
+            $_SESSION['login'] = "false";
             if (Validate::validName($name)) {
                 $user->setName($name);
             }
@@ -62,18 +67,86 @@ class Controller
                 $this->_f3->set('errors["password"]',
                     'Password must contain at lease 8 characters, one uppercase letter, one lowercase letter, and one number');
             }
+
+            if (Validate::validStAddress($address)) {
+                $_SESSION['address'] = $address;
+            }
+            else {
+                $this->_f3->set('errors["stAddress"]',
+                    'Please enter valid address!');
+            }
+
+
+            if (Validate::validCity($city)) {
+                $_SESSION['city'] = $city;
+            }
+            else {
+                $this->_f3->set('errors["city"]',
+                    'Please enter valid city!');
+            }
+
+            if (Validate::validZipcode($zip)) {
+                $_SESSION['zip'] = $zip;
+            }
+            else {
+                $this->_f3->set('errors["zip"]',
+                    'Please enter valid Zipcode!');
+            }
+
+            if (Validate::validCardNumber($cardNumber)) {
+                $_SESSION['cardNumber'] = $cardNumber;
+            }
+            else {
+                $this->_f3->set('errors["cardNumber"]',
+                    'Please enter valid card number!');
+            }
+
+            if (Validate::validExpiration($expirationDate)) {
+                $_SESSION['expiration'] = $expirationDate;
+            }
+            else {
+                $this->_f3->set('errors["expiration"]',
+                    'Please enter valid expiration date!');
+            }
+
+            if (Validate::validCVV($cvv)) {
+                $_SESSION['cvv'] = $cvv;
+            }
+            else {
+                $this->_f3->set('errors["cvv"]',
+                    'Please enter valid card security cvv!');
+            }
             //Redirect to summary page
             if (empty($this->_f3->get('errors'))) {
                 $_SESSION['user'] = $user;
-                $this->_f3->reroute('logIn');
+                $this->_f3->reroute('home2');
+                $_SESSION['account'] = "Hi, ".$name;
+                $_SESSION['href'] = "logIn";
+                $_SESSION['login'] = "true";
             }
         }
+
         $view = new Template();
         echo $view->render('views/newUser.html');
     }
 
+    function gameList()
+    {
+        $view = new Template();
+        echo $view->render('views/gameList.html');
+    }
+    function home2()
+    {
+        $_SESSION['account'] = "Hi, ".$_SESSION['name'];
+        $_SESSION['href'] = "logIn";
+        $view = new Template();
+        echo $view->render('views/homeSignedIn.html');
+    }
+
     function logIn()
     {
+        $_SESSION['href'] = "false";
+        $_SESSION['account'] = "Log In/Create Account";
         $view = new Template();
         echo $view->render('views/logIn.html');
     }
