@@ -3,7 +3,7 @@ h1, h2 {
     font-weight: 400;
     font-style: normal;
 
-    color: #d5b6ae;
+    color: #b377ca;
 }
 a {
     font-family: raleway,sans-serif;
@@ -124,7 +124,7 @@ button.accordion-button:not(.collapsed) {
 
 footer {
     width: 100%;
-    background-color: #d5b6ae;
+    background-color: #b377ca;
     color: white;
 
     /*padding: 55px 0 55px 0;*/
@@ -414,12 +414,6 @@ label.btn.btn-primary:hover {
     border-color: rgb(222, 182, 172);
 }
 
-
-#rusticWoodPriceSelect, #darkWalnutPriceSelect, 
-    #vintageMirrorPriceSelect, #modernRoundPriceSelect, 
-    #layeredArchPriceSelect {
-        display: none;
-    }
 
 
 
