@@ -32,9 +32,17 @@ $f3->route('GET /homePage', function(){
     $GLOBALS['con']->home();
 });
 
-$f3->route('GET /gameList', function(){
+$f3->route('GET|POST /gameList', function(){
     $GLOBALS['con']->gameList();
 });
+
+$f3->route('GET|POST /productPage', function(){
+    $GLOBALS['con']->productPage();
+});
+$f3->route('GET|POST /cart', function(){
+    $GLOBALS['con']->cart();
+});
+
 
 $f3->route('GET|POST /newUser', function(){
     $GLOBALS['con']->newUser();

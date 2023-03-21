@@ -16,6 +16,7 @@ class Controller
         //Instantiate a view
         $view = new Template();
         echo $view->render("views/home.html");
+
     }
 
 
@@ -132,8 +133,67 @@ class Controller
 
     function gameList()
     {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//            $order = new Order();
+            $tittle = $_POST['title'];
+//            $order->setTitle($tittle);
+            if (empty($this->_f3->get('errors'))) {
+//                $_SESSION['order'] = $order;
+                $_SESSION['tittle'] = $tittle;
+                $this->_f3->reroute('productPage');
+            }
+        }
+        //add data to f3 hives
+        $this->_f3->set('gameTittles', DataLayer::getTittle());
+        //retrieve to the page
         $view = new Template();
         echo $view->render('views/gameList.html');
+    }
+
+    function productPage(){
+        $order = new Order();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_SESSION['quantity'] = $_POST['quantity'];
+            if ($_SESSION['tittle'] == 'Fortnite'){
+                $order->setTitle($_SESSION['tittle']);
+                $order->setPrice(0);
+//                $order->setQty($_SESSION['quantity']);
+            } elseif ($_SESSION['tittle'] == 'Pacman'){
+                $order->setTitle($_SESSION['tittle']);
+                $order->setPrice(4.44);
+//                $order->setQty($_SESSION['quantity']);
+            }
+            elseif ($_SESSION['tittle'] == 'Call of Duty'){
+                $order->setTitle($_SESSION['tittle']);
+                $order->setPrice(19.99);
+//                $order->setQty($_SESSION['quantity']);
+            }elseif ($_SESSION['tittle'] == 'Super Mario Bros'){
+                $order->setTitle($_SESSION['tittle']);
+                $order->setPrice(19.99);
+//                $order->setQty($_SESSION['quantity']);
+            }elseif ($_SESSION['tittle'] == 'Minecraft'){
+                $order->setTitle($_SESSION['tittle']);
+                $order->setPrice(29.99);
+//                $order->setQty($_SESSION['quantity']);
+            }elseif ($_SESSION['tittle'] == 'Sonic'){
+                $order->setTitle($_SESSION['tittle']);
+                $order->setPrice(9.99);
+//                $order->setQty($_SESSION['quantity']);
+            }
+            $order->setQty($_SESSION['quantity']);
+            if (empty($this->_f3->get('errors'))) {
+                $_SESSION['order'] = $order;
+                $this->_f3->reroute('cart');
+            }
+        }
+
+        $view = new Template();
+        echo $view->render('views/product_pages.html');
+    }
+    function cart()
+    {
+        $view = new Template();
+        echo $view->render('views/cart.html');
     }
     function home2()
     {

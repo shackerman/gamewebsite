@@ -1,12 +1,12 @@
 <?php
 
 class DataLayer{
-    static function getMeals()
+    static function getTittle()
     {
-        return array(" breakfast", " lunch", " dinner", " dessert");
+        return array("Fortnite", "Pacman", "Call of Duty", "Super Mario Bros", "Minecraft", "Sonic");
     }
-    static function getCondiments()
-    {
-        return array(" ketchup", " mustard", " sriracha");
+
+    static function getDescripton(){
+        return array("1","2","3","4","5","6");
     }
 }
