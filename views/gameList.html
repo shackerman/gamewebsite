@@ -1,69 +1,28 @@
 <include href="views/header.html"></include>
-<h1>Vote for your favorite games on the list this week!:</h1>
-<ul>
-    <li>
-        <a href="#" class="game-link" data-game="Super Mario Bros.">
-            <img src="images/super-mario-bros.png" alt="Super Mario Bros.">
-            <span class="game-title">Super Mario Bros.</span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="game-link" data-game="The Legend of Zelda">
-            <img src="images/the-legend-of-zelda.png" alt="The Legend of Zelda">
-            <span class="game-title">The Legend of Zelda.</span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="game-link" data-game="Minecraft">
-            <img src="images/minecraft.png" alt="Minecraft">
-            <span class="game-title">Minecraft </span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="game-link" data-game="Fortnite">
-            <img src="images/fortnite.png" alt="Fortnite">
-            <span class="game-title">Fortnite </span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="game-link" data-game="Call of Duty">
-            <img src="images/call-of-duty.png" alt="Call of duty">
-            <span class="game-title">Call of Duty </span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="game-link" data-game="Donkey Kong">
-            <img src="images/donkey-kong.png" alt="Donkey Kong">
-            <span class="game-title">Donkey Kong </span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="game-link" data-game="Pacman">
-            <img src="images/pac-man.png" alt="Pacman">
-            <span class="game-title">Pacman </span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="game-link" data-game="Left for Dead">
-            <img src="images/left-for-dead.png" alt="Left for Dead">
-            <span class="game-title">Left for Dead </span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="game-link" data-game="Tetris">
-            <img src="images/tetris.png" alt="Tetris">
-            <span class="game-title">Tetris </span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="game-link" data-game="Sonic">
-            <img src="images/sonic.png" alt="Sonic">
-            <span class="game-title">Sonic </span>
-        </a>
-    </li>
-
-</ul>
-
+<h1>Buy or vote for your favorite games on the list this week!:</h1>
+<form action="#" method="post">
+<div class="container-fluid">
+    <div class="row marginLeft">
+            <repeat group="{{@gameTittles}}" value="{{ @game }}">
+                <div class="col-12 col-sm-3 GameBox">
+                    <div class="row">
+                        <span class="text-center game-title">{{ ucfirst(@game) }}</span>
+                    </div>
+                    <div class="row">
+                        <a href="#" class="game-link" data-game="{{ @game }}">
+                            <img class="gameImage" src="images/{{ @game }}.png" alt="{{ @game }}">
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn-primary buttonRight" type="submit" name="title" value="{{@game}}">More Info</button>
+                        </div>
+                    </div>
+                </div>
+            </repeat>
+    </div>
+</div>
+</form>
 <h2>Your Favorites List:</h2>
 <ul id="favorites-list">
     <!-- Favorite games will be added here dynamically -->

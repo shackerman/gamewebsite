@@ -47,15 +47,21 @@
                         <a class="nav-link" href="#">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="newUser">{{@SESSION.account}}</a>
+                        <check if="{{@SESSION.href != 'logIn'}}">
+                            <a class="nav-link" href="newUser">LogIn/Create Account</a>
+                        </check>
                     </li>
-                    <li>
-                        <check if="{{@SESSION.href == 'logIn'}}">
+
+                    <check if="{{@SESSION.href == 'logIn'}}">
+                        <li>
+                            <a class="nav-link">{{@SESSION.account}}</a>
+                        </li>
+                        <li>
                             <form action="#" method="GET">
                                 <a class="nextButton btn btn-primary logout" type="submit" href="{{@SESSION.href}}">Logout</a>
                             </form>
-                        </check>
-                    </li>
+                        </li>
+                    </check>
                 </ul>
             </div>
         </div>
