@@ -52,6 +52,12 @@ $f3->route('GET /logIn', function(){
     $GLOBALS['con']->logIn();
 });
 
+$f3->route('GET /admin', function () {
+
+    $GLOBALS['con']->admin();
+
+});
+
 //Run Fat-Free
 $f3->run();
 //Java -> f3.run();
