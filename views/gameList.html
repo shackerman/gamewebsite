@@ -35,20 +35,29 @@
         link.addEventListener('click', addToFavorites);
     });
 
+    const favoritesSet = new Set(); // Keep track of added games
+
     function addToFavorites(event) {
         event.preventDefault();
 
         const gameTitle = this.getAttribute('data-game');
         const favoritesList = document.getElementById('favorites-list');
 
+        if (favoritesSet.has(gameTitle)) {
+            // If the game has already been added, do nothing
+            return;
+        }
+
+        // Add the game to the favorites list and set
         const newFavorite = document.createElement('li');
         newFavorite.innerHTML = `
-      <img src="${this.querySelector('img').src}" alt="${gameTitle}">
-      ${gameTitle}
+        <img src="${this.querySelector('img').src}" alt="${gameTitle}">
+        ${gameTitle}
     `;
-
         favoritesList.appendChild(newFavorite);
+        favoritesSet.add(gameTitle);
     }
+
 
 </script>
 </body>
