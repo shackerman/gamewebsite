@@ -24,8 +24,8 @@
 ## [x] 10: Your submission shows adequate effort for a final project in a full-stack web development course.
 * We worked very hard on this.
 # Your most current UML class diagram
-- ![UML Diagram](gamewebsite/umldiagram.png)
+- ![UML Diagram](umldiagram.png)
 # You most current ER database diagram
-- ![ER Diagram](gamewebsite/erdatabase.png)
+- ![ER Diagram](erdatabase.png)
 # Your admin login username and password, if applicable
 * No username/password!
