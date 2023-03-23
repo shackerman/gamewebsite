@@ -3,7 +3,7 @@ h1, h2 {
     font-weight: 400;
     font-style: normal;
 
-    color: #b377ca;
+    color: #54539c;
 }
 a {
     font-family: raleway,sans-serif;
@@ -68,7 +68,7 @@ a#avail.nav-link:hover {
 }
 
 .package-link {
-    background-color: rgba(213,182,174,.87);
+    background-color: rgba(#54539c);
     border-radius: 35px;
     padding: 20px 35px 20px 35px;
     color: rgb(240, 240, 240);
@@ -76,7 +76,7 @@ a#avail.nav-link:hover {
     font-size: small;
 }
 a.package-link:hover {
-    background-color: rgba(219, 196, 189, 0.87);
+    background-color: rgba(#54539c);
     border-radius: 30px;
     color: white;
 }
@@ -184,7 +184,7 @@ h1, h2, h3{
     font-weight: 700;
     font-style: normal;
     text-align: center;
-    color: #d5b6ae;
+    color: #54539c;
 }
 
 .text{
