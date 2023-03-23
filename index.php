@@ -19,6 +19,7 @@ $f3 = Base::instance();
 
 //Instantiate a Controller object
 $con = new Controller($f3);
+$dataLayer = new DataLayer();
 
 // Define a default route ("Home page" project)
 $f3->route('GET /', function(){
@@ -51,11 +52,8 @@ $f3->route('GET|POST /newUser', function(){
 $f3->route('GET /logIn', function(){
     $GLOBALS['con']->logIn();
 });
-
-$f3->route('GET /admin', function () {
-
-    $GLOBALS['con']->admin();
-
+$f3->route('GET /orderPlaced', function(){
+    $GLOBALS['con']->orderPlaced();
 });
 
 //Run Fat-Free
