@@ -1,4 +1,5 @@
 <include href="views/header.html"></include>
+
 <div class="row background2">
     <div class="col">
         <table class="table">
@@ -6,21 +7,21 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Password</th>
-                <th>Phone</th>
-                <th>Address on File</th>
-                <th>Payment Information</th>
+                <th>Tittle</th>
+                <th>Quantity</th>
+                <th>Shipping</th>
+                <th>Address</th>
             </tr>
             </thead>
             <tbody>
-            <repeat group="{{ @users }}" value="{{ @user }}">
+            <repeat group="{{@orders}}" value="{{ @order }}">
                 <tr>
-                    <td>{{ @user['name'] }}</td>
-                    <td>{{ @user['email'] }}</td>
-                    <td>{{ @user['password'] }}</td>
-                    <td>{{ @user['phone'] }}</td>
-                    <td>{{ @user['stAddress'] }} &nbsp; {{ @user['stAdress2'] }} &nbsp; {{ @user['city'] }}  &nbsp; {{ @user['state'] }} &nbsp; {{ @user['zip'] }} </td>
-                    <td>{{ @user['cardNumber'] }} &nbsp; {{ @user['expiration'] }} &nbsp; {{ @user['cvv'] }}  </td>
+                    <td>{{ @order['name'] }}</td>
+                    <td>{{ @order['email'] }}</td>
+                    <td>{{ @order['title'] }}</td>
+                    <td>{{ @order['qty'] }}</td>
+                    <td>{{ @order['shipping']}}</td>
+                    <td>{{ @order['address'] }} </td>
                 </tr>
             </repeat>
             </tbody>

@@ -347,6 +347,8 @@ class Controller
 
     function admin()
     {
+        $getOrder = $GLOBALS['dataLayer']->getOrder();
+        $this->_f3->set('orders', $getOrder);
         //Instantiate a view
         $view = new Template();
         echo $view->render("views/admin.html");
