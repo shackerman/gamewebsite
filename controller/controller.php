@@ -1,15 +1,41 @@
 <?php
 
-// 328/gamewebsite/controller/controller.php
+/**
+ * This class holds most of our data from the data that the user enters when they create their account, as well as the data of the products we are offering.
+ * It also controls the rendering of the pages via the MVC model.
+ *
+ * @category   Controller
+ * @package    Controller
+ * @author     Jeconiah Alferez-Ruiz
+ * @author     Ron Nguyen
+ * @author     Jerome Shadkim
+ * @copyright  1997-2005 The PHP Group
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version    Release: @1.00@
+ * @link       https://nguyenron.greenriverdev.com/328/gamewebsite/homePage
+ * @see        Controller
+ * @since      Class available since Release 1.2.0
+ * @deprecated Class not deprecated yet.
+ */
 
 class Controller
 {
     private $_f3; //Fat-Free object
 
+    /**
+     * Constructs the pages
+     * @param f3
+     */
+
     function __construct($f3)
     {
         $this->_f3 = $f3;
     }
+
+    /**
+     * Constructs the home page
+     * @param Template
+     */
 
     function home()
     {
@@ -18,6 +44,11 @@ class Controller
         echo $view->render("views/home.html");
 
     }
+
+    /**
+     * Constructs a user item
+     * @param Template
+     */
 
 
     function newUser()
@@ -135,6 +166,11 @@ class Controller
         echo $view->render('views/newUser.html');
     }
 
+    /**
+     * Holds the items we offer.
+     * @param Template
+     */
+
     function gameList()
     {
         if ($_SESSION['name'] == ""){
@@ -203,6 +239,12 @@ class Controller
         $view = new Template();
         echo $view->render('views/product_pages.html');
     }
+
+    /**
+     * Constructs the users cart
+     * @param Template
+     */
+
     function cart()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -311,6 +353,12 @@ class Controller
         $view = new Template();
         echo $view->render('views/cart.html');
     }
+
+    /**
+     * Constructs the home page when the user is logged in.
+     * @param Template
+     */
+
     function home2()
     {
         $_SESSION['account'] = "Hi, ".$_SESSION['name'];
@@ -318,6 +366,12 @@ class Controller
         $view = new Template();
         echo $view->render('views/homeSignedIn.html');
     }
+
+    /**
+     * Constructs the users order.
+     * @param Template
+     */
+
     function orderPlaced()
     {
         $id = $GLOBALS['dataLayer']->insertOrder($_SESSION['gameOrder']);
@@ -333,6 +387,11 @@ class Controller
         echo $view->render('views/orderPlaced.html');
     }
 
+    /**
+     * Constructs the log-in page if the user is new
+     * @param Template
+     */
+
     function logIn()
     {
         $_SESSION['href'] = "false";
@@ -345,6 +404,11 @@ class Controller
         $_SESSION['guestName'] = $guest_id;
     }
 
+    /**
+     * Constructs the admin page.
+     * @param Template
+     */
+
     function admin()
     {
         $getOrder = $GLOBALS['dataLayer']->getOrder();
@@ -353,5 +417,5 @@ class Controller
         $view = new Template();
         echo $view->render("views/admin.html");
     }
-    
+
 }

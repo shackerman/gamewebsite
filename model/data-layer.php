@@ -1,5 +1,25 @@
 <?php
+
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../pdo-config.php');
+
+/**
+ * This class holds and manages the data that customers add to the database, such as the orders, their cart.
+ * It also hosts some of our data such as what game titles they purchase and the shipment option they choose.
+ *
+ * @category   Model
+ * @package    Model
+ * @author     Jeconiah Alferez-Ruiz
+ * @author     Ron Nguyen
+ * @author     Jerome Shadkim
+ * @copyright  1997-2005 The PHP Group
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version    Release: @1.00@
+ * @link       https://nguyenron.greenriverdev.com/328/gamewebsite/homePage
+ * @see        DataLayer
+ * @since      Class available since Release 1.2.0
+ * @deprecated Class not deprecated yet.
+ */
+
 class DataLayer{
     // Database connection object
     private $_dbh;

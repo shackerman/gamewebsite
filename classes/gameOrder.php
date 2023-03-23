@@ -1,5 +1,23 @@
 <?php
 
+/**
+ * This class holds and manages the data that the customer enters when creating their account and making their order 
+ * and matches it with global variables on the rest of the site.
+ *
+ * @category   Classes
+ * @package    Classes
+ * @author     Jeconiah Alferez-Ruiz
+ * @author     Ron Nguyen
+ * @author     Jerome Shadkim
+ * @copyright  1997-2005 The PHP Group
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version    Release: @1.00@
+ * @link       https://nguyenron.greenriverdev.com/328/gamewebsite/homePage
+ * @see        gameOrder
+ * @since      Class available since Release 1.2.0
+ * @deprecated Class not deprecated yet.
+ */
+
 class gameOrder
 {
     private $_name;
