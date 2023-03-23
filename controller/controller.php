@@ -218,7 +218,6 @@ class Controller
             $cvv2 = $_POST['guestCvv'];
             $_SESSION['day'] = $_POST['day'];
             $_SESSION['gameOrder']->setShipping($_SESSION['day']);
-            var_dump($name2);
             if (Validate::validName($name2)) {
                 //$order->setName($name);
                 $_SESSION['gameOrder']->setName($name2);
@@ -285,6 +284,9 @@ class Controller
             else {
                 $this->_f3->set('errors["guestCvv"]',
                     'Please enter valid card security cvv!');
+            }
+            if ($_SESSION['gameOrder'] instanceof gameOrder_membership){
+                $this->_f3->reroute('orderPlaced');
             }
             if (empty($this->_f3->get('errors'))) {
                 $this->_f3->reroute('orderPlaced');

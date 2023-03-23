@@ -8,7 +8,6 @@
                 <p>{{ @customer['title']}} - ${{ @customer['price'] }} x{{ @customer['qty'] }}</p>
                 <img class=" floatleft" src="images/{{ @customer['title'] }}.png" alt="{{ @customer['title'] }}">
             </repeat>
-            <check if="{{@SESSION.gameOrder instanceof gameOrder_membership}}">Free One day shipping</check>
             <check if ="{{!@SESSION.gameOrder instanceof gameOrder_membership}}">
                 <div class="row floatleft">
                     <h3 class="floatleft">Shipping Options</h3>
@@ -27,6 +26,7 @@
                 <p class="floatleft">Name: {{@SESSION.gameOrder->getName()}}</p>
                 <p class="floatleft">Email: {{@SESSION.gameOrder->getEmail()}}</p>
                 <p class="floatleft">Address: {{@SESSION.gameOrder->getAddress()}}</p>
+                <p class="floatleft">Free One day shipping</p>
             </check>
             <check if="{{!@SESSION.gameOrder instanceof gameOrder_membership}}">
                 <div class="row">
