@@ -514,8 +514,8 @@ body{
 input[type=text], input[type=password] {
     width: 100%;
     font-size: 15px;
-    padding: 15px;
-    margin: 5px 0 22px 0;
+    padding: 10px;
+    margin: 5px 0 0 0;
     display: inline-block;
     border: none;
     background: #f1f1f1;
@@ -682,4 +682,9 @@ button.buttonRight{
     width: 30%;
     height: 30%;
     margin-left: 50px;
+}
+
+.cartpage{
+    font-size: 12px;
+    padding: 0;
 }
