@@ -1,0 +1,56 @@
+<include href="views/header.html"></include>
+<h1>Buy or vote for your favorite games on the list this week!:</h1>
+<form action="#" method="post">
+<div class="container-fluid">
+    <div class="row marginLeft">
+            <repeat group="{{@gameTittles}}" value="{{ @game }}">
+                <div class="col-12 col-sm-3 GameBox">
+                    <div class="row">
+                        <span class="text-center game-title">{{ ucfirst(@game) }}</span>
+                    </div>
+                    <div class="row">
+                        <a href="#" class="game-link" data-game="{{ @game }}">
+                            <img class="gameImage" src="images/{{ @game }}.png" alt="{{ @game }}">
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn-primary buttonRight" type="submit" name="title" value="{{@game}}">More Info</button>
+                        </div>
+                    </div>
+                </div>
+            </repeat>
+    </div>
+</div>
+</form>
+<h2>Your Favorites List:</h2>
+<ul id="favorites-list">
+    <!-- Favorite games will be added here dynamically -->
+</ul>
+
+<script>
+    // Add event listener to all game links
+    const gameLinks = document.querySelectorAll('.game-link');
+    gameLinks.forEach(link => {
+        link.addEventListener('click', addToFavorites);
+    });
+
+    function addToFavorites(event) {
+        event.preventDefault();
+
+        const gameTitle = this.getAttribute('data-game');
+        const favoritesList = document.getElementById('favorites-list');
+
+        const newFavorite = document.createElement('li');
+        newFavorite.innerHTML = `
+      <img src="${this.querySelector('img').src}" alt="${gameTitle}">
+      ${gameTitle}
+    `;
+
+        favoritesList.appendChild(newFavorite);
+    }
+
+</script>
+</body>
+</html>
+

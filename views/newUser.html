@@ -1,0 +1,173 @@
+<include href="views/header.html"></include>
+<form action="#" method="post">
+  <div class="container-fluid">
+    <h1>Create New Account</h1>
+    <hr>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-12 col-sm-4">
+        <label for="name"><strong>Name:</strong></label><br>
+        <input type="text" id="name" name="name" placeholder="Enter Name"><br>
+        <check if="{{ isset(@errors['name'])}}">
+          <span class="err">{{ @errors['name'] }}</span>
+        </check>
+
+
+        <label for="phone"><strong>Phone:</strong></label><br>
+        <input type="text" id="phone" name="phone" placeholder="Enter Phone Number"><br>
+        <check if="{{ isset(@errors['phone'])}}">
+          <span class="err">{{ @errors['phone'] }}</span>
+        </check>
+      </div>
+      <div class="col-12 col-sm-4">
+        <label><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email">
+        <check if="{{ isset(@errors['email'])}}">
+          <span class="err">{{ @errors['email'] }}</span>
+        </check>
+
+        <br><label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password">
+        <check if="{{ isset(@errors['password'])}}">
+          <span class="err">{{ @errors['password'] }}</span>
+        </check>
+        <div class="col-sm-2"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <label for="stAddress"><strong>Street Address</strong></label><br>
+          <input type="text" id="stAddress" name="stAddress" placeholder="1234 main st"><br>
+          <check if="{{ isset(@errors['stAddress'])}}">
+            <span class="err">{{ @errors['stAddress'] }}</span>
+          </check>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <label for="stAdress2"><strong>Address 2</strong></label><br>
+          <input type="text" id="stAdress2" name="stAdress2" placeholder="Appointment, studio, or floor"><br>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-12 col-sm-4">
+          <label for="city"><strong>City</strong></label><br>
+          <input type="text" id="city" name="city" placeholder="Kent"><br>
+          <check if="{{ isset(@errors['city'])}}">
+            <span class="err">{{ @errors['city'] }}</span>
+          </check>
+        </div>
+        <div class="col-12 col-sm-2">
+          <label for="state"><strong>State: </strong></label>
+          <br>
+          <select id="state" name="state">
+            <option value="Washington">Washington</option>
+            <option value="Alabama">Alabama</option>
+            <option value="Alaska">Alaska</option>
+            <option value="Arizona">Arizona</option>
+            <option value="Arkansas">Arkansas</option>
+            <option value="California">California</option>
+            <option value="Colorado">Colorado</option>
+            <option value="Connecticut">Connecticut</option>
+            <option value="Delaware">Delaware</option>
+            <option value="District of Columbia">District of Columbia</option>
+            <option value="Florida">Florida</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Guam">Guam</option>
+            <option value="Hawaii">Hawaii</option>
+            <option value="Idaho">Idaho</option>
+            <option value="Illinois">Illinois</option>
+            <option value="Indiana">Indiana</option>
+            <option value="Iowa">Iowa</option>
+            <option value="Kansas">Kansas</option>
+            <option value="Kentucky">Kentucky</option>
+            <option value="Louisiana">Louisiana</option>
+            <option value="Maine">Maine</option>
+            <option value="Maryland">Maryland</option>
+            <option value="Massachusetts">Massachusetts</option>
+            <option value="Michigan">Michigan</option>
+            <option value="Minnesota">Minnesota</option>
+            <option value="Mississippi">Mississippi</option>
+            <option value="Missouri">Missouri</option>
+            <option value="Montana">Montana</option>
+            <option value="Nebraska">Nebraska</option>
+            <option value="Nevada">Nevada</option>
+            <option value="New Hampshire">New Hampshire</option>
+            <option value="New Jersey">New Jersey</option>
+            <option value="New Mexico">New Mexico</option>
+            <option value="New York">New York</option>
+            <option value="North Carolina">North Carolina</option>
+            <option value="North Dakota">North Dakota</option>
+            <option value="Northern Marianas Islands">Northern Marianas Islands</option>
+            <option value="Ohio">Ohio</option>
+            <option value="Oklahoma">Oklahoma</option>
+            <option value="Oregon">Oregon</option>
+            <option value="Pennsylvania">Pennsylvania</option>
+            <option value="Puerto Rico">Puerto Rico</option>
+            <option value="Rhode Island">Rhode Island</option>
+            <option value="South Carolina">South Carolina</option>
+            <option value="South Dakota">South Dakota</option>
+            <option value="Tennessee">Tennessee</option>
+            <option value="Texas">Texas</option>
+            <option value="Utah">Utah</option>
+            <option value="Vermont">Vermont</option>
+            <option value="Virginia">Virginia</option>
+            <option value="Virgin Islands">Virgin Islands</option>
+            <option value="Washington">Washington</option>
+            <option value="West Virginia">West Virginia</option>
+            <option value="Wisconsin">Wisconsin</option>
+            <option value="Wyoming">Wyoming</option>
+          </select>
+        </div>
+        <div class="col-12 col-sm-2">
+          <label for="zip"><strong>Zip Code</strong></label><br>
+          <input type="text" id="zip" name="zip" placeholder="98059"><br>
+          <check if="{{ isset(@errors['zip'])}}">
+            <span class="err">{{ @errors['zip'] }}</span>
+          </check>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-12 col-sm-8">
+          <div class="row">
+            <label for="cardNumber"><strong>Card Number</strong></label><br>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder=""><br>
+            <check if="{{ isset(@errors['cardNumber'])}}">
+              <span class="err">{{ @errors['cardNumber'] }}</span>
+            </check>
+          </div>
+          <div class="row">
+            <div class="col-12 col-sm-4">
+              <label for="expiration">Expiration date:</label>
+              <input type="text" id="expiration" name="expiration" placeholder="MM/YY">
+              <check if="{{ isset(@errors['expiration'])}}">
+                <span class="err">{{ @errors['expiration'] }}</span>
+              </check>
+            </div>
+            <div class="col-12 col-sm-4">
+              <label for="cvv"><strong>CVV</strong></label><br>
+              <input type="text" id="cvv" name="cvv" placeholder=""><br>
+              <check if="{{ isset(@errors['cvv'])}}">
+                <span class="err">{{ @errors['cvv'] }}</span>
+              </check>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="signup">Sign Up</button>
+    </div>
+  </div>
+</form>
+</body>
+</html>
