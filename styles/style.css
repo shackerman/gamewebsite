@@ -673,3 +673,13 @@ button.buttonRight{
     text-align: left;
     padding-bottom: 25px;
 }
+
+.floatleft{
+    text-align: left;
+}
+
+.gameImage2{
+    width: 30%;
+    height: 30%;
+    margin-left: 50px;
+}
