@@ -56,6 +56,12 @@ $f3->route('GET /orderPlaced', function(){
     $GLOBALS['con']->orderPlaced();
 });
 
+$f3->route('GET /admin', function () {
+
+    $GLOBALS['con']->admin();
+
+});
+
 //Run Fat-Free
 $f3->run();
 //Java -> f3.run();

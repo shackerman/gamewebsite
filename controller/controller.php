@@ -339,4 +339,12 @@ class Controller
         $_SESSION['name'] = $guest_id;
         $_SESSION['guestName'] = $guest_id;
     }
+
+    function admin()
+    {
+        //Instantiate a view
+        $view = new Template();
+        echo $view->render("views/admin.html");
+    }
+    
 }
