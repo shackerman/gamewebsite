@@ -260,7 +260,12 @@ class Controller
                     'Please enter valid Zipcode!');
             }
             $_SESSION['Address2'] = $_SESSION['address2'].", ".$_SESSION['city2'].", ".$_SESSION['state2']." ".$_SESSION['zip2'];
-            $_SESSION['gameOrder']->setAddress($_SESSION['Address2']);
+            if ($_SESSION['gameOrder'] instanceof gameOrder_membership){
+                $_SESSION['gameOrder']->setAddress($_SESSION['Address']);
+            } else {
+                $_SESSION['gameOrder']->setAddress($_SESSION['Address2']);
+            }
+
 
             if (Validate::validCardNumber($cardNumber2)) {
                 $_SESSION['cardNumber'] = $cardNumber2;
