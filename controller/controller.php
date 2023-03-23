@@ -23,6 +23,7 @@ class Controller
     function newUser()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //$order = new gameOrder();
             $user = new User();
             $name = $_POST['name'];
             $phone = $_POST['phone'];
@@ -31,15 +32,18 @@ class Controller
             $address = $_POST['stAddress'];
             $city = $_POST['city'];
             $zip = $_POST['zip'];
+            $state = $_POST['state'];
             $cardNumber = $_POST['cardNumber'];
             $expirationDate = $_POST['expiration'];
             $cvv = $_POST['cvv'];
+            $_SESSION['state'] = $state;
             $_SESSION['name'] = $name;
             $_SESSION['account'] = "Log In/Create Account";
             $_SESSION['href'] = "newUser";
             $_SESSION['login'] = "false";
             if (Validate::validName($name)) {
-                $user->setName($name);
+                //$order->setName($name);
+                $_SESSION['name'] = $name;
             }
             else {
                 $this->_f3->set('errors["name"]',
@@ -55,7 +59,7 @@ class Controller
             }
 
             if (Validate::validEmail($email)) {
-                $user->setEmail($email);
+                $_SESSION['email'] = $email;
             }
             else {
                 $this->_f3->set('errors["email"]',
@@ -119,7 +123,7 @@ class Controller
             }
             //Redirect to summary page
             if (empty($this->_f3->get('errors'))) {
-                $_SESSION['user'] = $user;
+                $_SESSION['Address'] = $_SESSION['address'].", ".$_SESSION['city'].", ".$_SESSION['state']." ".$_SESSION['zip'];
                 $this->_f3->reroute('home2');
                 $_SESSION['account'] = "Hi, ".$name;
                 $_SESSION['href'] = "logIn";
@@ -133,12 +137,13 @@ class Controller
 
     function gameList()
     {
+        if ($_SESSION['name'] == ""){
+            $guest_id = uniqid('guest_');
+            $_SESSION['name'] = $guest_id;
+        }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//            $order = new Order();
             $tittle = $_POST['title'];
-//            $order->setTitle($tittle);
             if (empty($this->_f3->get('errors'))) {
-//                $_SESSION['order'] = $order;
                 $_SESSION['tittle'] = $tittle;
                 $this->_f3->reroute('productPage');
             }
@@ -151,47 +156,151 @@ class Controller
     }
 
     function productPage(){
-        $order = new Order();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($_SESSION['href'] != "logIn"){
+                $gameOrder = new gameOrder();
+            } else {
+                $gameOrder = new gameOrder_membership();
+            }
+            $gameOrder->setName($_SESSION['name']);
+            $_SESSION['guestName'] = $_SESSION['name'];
             $_SESSION['quantity'] = $_POST['quantity'];
+            $gameOrder->setTitle($_SESSION['tittle']);
+            if (!$gameOrder instanceof gameOrder_membership){
+                $gameOrder->setEmail("Null");
+            } else {
+                $gameOrder->setEmail($_SESSION['email']);
+            }
             if ($_SESSION['tittle'] == 'Fortnite'){
-                $order->setTitle($_SESSION['tittle']);
-                $order->setPrice(0);
-//                $order->setQty($_SESSION['quantity']);
+                $gameOrder->setPrice('0');
             } elseif ($_SESSION['tittle'] == 'Pacman'){
-                $order->setTitle($_SESSION['tittle']);
-                $order->setPrice(4.44);
-//                $order->setQty($_SESSION['quantity']);
+                $gameOrder->setPrice('4.44');
             }
             elseif ($_SESSION['tittle'] == 'Call of Duty'){
-                $order->setTitle($_SESSION['tittle']);
-                $order->setPrice(19.99);
-//                $order->setQty($_SESSION['quantity']);
+                $gameOrder->setPrice('19.99');
             }elseif ($_SESSION['tittle'] == 'Super Mario Bros'){
-                $order->setTitle($_SESSION['tittle']);
-                $order->setPrice(19.99);
-//                $order->setQty($_SESSION['quantity']);
+                $gameOrder->setPrice('19.99');
             }elseif ($_SESSION['tittle'] == 'Minecraft'){
-                $order->setTitle($_SESSION['tittle']);
-                $order->setPrice(29.99);
-//                $order->setQty($_SESSION['quantity']);
+                $gameOrder->setPrice('29.99');
             }elseif ($_SESSION['tittle'] == 'Sonic'){
-                $order->setTitle($_SESSION['tittle']);
-                $order->setPrice(9.99);
-//                $order->setQty($_SESSION['quantity']);
+                $gameOrder->setPrice('9.99');
             }
-            $order->setQty($_SESSION['quantity']);
+            $gameOrder->setQty($_SESSION['quantity']);
+
+            $_SESSION['discount'] = 0;
+
+            if ($gameOrder instanceof gameOrder_membership){
+                $_SESSION['discount'] = 0.1;
+                $gameOrder->setDiscount($_SESSION['discount']);
+            }
             if (empty($this->_f3->get('errors'))) {
-                $_SESSION['order'] = $order;
-                $this->_f3->reroute('cart');
+                $gameOrder->setAddress($_SESSION['Address']);
+                $_SESSION['gameOrder'] = $gameOrder;
+                $id = $GLOBALS['dataLayer']->insertCart($_SESSION['gameOrder']);
+                //$this->_f3->reroute('cart');
             }
         }
-
         $view = new Template();
         echo $view->render('views/product_pages.html');
     }
     function cart()
     {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $name2 = $_POST['guestName'];
+            $email2 = $_POST['guestEmail'];
+            $address2 = $_POST['guestStAddress'];
+            $city2 = $_POST['guestCity'];
+            $zip2 = $_POST['guestZip'];
+            $state2 = $_POST['guestState'];
+            $_SESSION['state2'] = $state2;
+            $cardNumber2 = $_POST['guestCardNumber'];
+            $expirationDate2 = $_POST['guestExpiration'];
+            $cvv2 = $_POST['guestCvv'];
+            $_SESSION['day'] = $_POST['day'];
+            $_SESSION['gameOrder']->setShipping($_SESSION['day']);
+            var_dump($name2);
+            if (Validate::validName($name2)) {
+                //$order->setName($name);
+                $_SESSION['gameOrder']->setName($name2);
+            }
+            else {
+                $this->_f3->set('errors["guestName"]',
+                    'Please re-enter a valid name!');
+            }
+
+            if (Validate::validEmail($email2)) {
+                $_SESSION['gameOrder']->setEmail($email2);
+            }
+            else {
+                $this->_f3->set('errors["guestEmail"]',
+                    'Please re-enter a valid email!');
+            }
+
+            if (Validate::validStAddress($address2)) {
+                $_SESSION['address2'] = $address2;
+            }
+            else {
+                $this->_f3->set('errors["guestStAddress"]',
+                    'Please enter valid address!');
+            }
+
+
+            if (Validate::validCity($city2)) {
+                $_SESSION['city2'] = $city2;
+            }
+            else {
+                $this->_f3->set('errors["guestCity"]',
+                    'Please enter valid city!');
+            }
+
+            if (Validate::validZipcode($zip2)) {
+                $_SESSION['zip2'] = $zip2;
+            }
+            else {
+                $this->_f3->set('errors["guestZip"]',
+                    'Please enter valid Zipcode!');
+            }
+            $_SESSION['Address2'] = $_SESSION['address2'].", ".$_SESSION['city2'].", ".$_SESSION['state2']." ".$_SESSION['zip2'];
+            $_SESSION['gameOrder']->setAddress($_SESSION['Address2']);
+
+            if (Validate::validCardNumber($cardNumber2)) {
+                $_SESSION['cardNumber'] = $cardNumber2;
+            }
+            else {
+                $this->_f3->set('errors["guestCardNumber"]',
+                    'Please enter valid card number!');
+            }
+
+            if (Validate::validExpiration($expirationDate2)) {
+                $_SESSION['expiration'] = $expirationDate2;
+            }
+            else {
+                $this->_f3->set('errors["guestExpiration"]',
+                    'Please enter valid expiration date!');
+            }
+
+            if (Validate::validCVV($cvv2)) {
+                $_SESSION['cvv'] = $cvv2;
+            }
+            else {
+                $this->_f3->set('errors["guestCvv"]',
+                    'Please enter valid card security cvv!');
+            }
+            if (empty($this->_f3->get('errors'))) {
+                $this->_f3->reroute('orderPlaced');
+            }
+        }
+        $name = $_SESSION['name'];
+        //Get the data from the model
+        $customerCart = $GLOBALS['dataLayer']->getCart($name);
+        $this->_f3->set('customerCarts', $customerCart);
+
+        $totalPrice = $GLOBALS['dataLayer']->getPrice($name);
+        $this->_f3->set('totals', $totalPrice);
+
+        $this->_f3->set('Shippings', DataLayer::getShipping());
+
+
         $view = new Template();
         echo $view->render('views/cart.html');
     }
@@ -202,31 +311,30 @@ class Controller
         $view = new Template();
         echo $view->render('views/homeSignedIn.html');
     }
+    function orderPlaced()
+    {
+        $id = $GLOBALS['dataLayer']->insertOrder($_SESSION['gameOrder']);
+        echo "Order ID: ".$id;
+        var_dump($_SESSION['guestName']);
+        $deleteCart = $GLOBALS['dataLayer']->deleteCart($_SESSION['guestName']);
+        $deleteMemberCart = $GLOBALS['dataLayer']->deleteCart($_SESSION['Name']);
+        $this->_f3->set('deleteCarts', $deleteCart);
+        $this->_f3->set('deleteMemberCarts', $deleteMemberCart);
+
+
+        $view = new Template();
+        echo $view->render('views/orderPlaced.html');
+    }
 
     function logIn()
     {
         $_SESSION['href'] = "false";
         $_SESSION['account'] = "Log In/Create Account";
+        session_destroy();
         $view = new Template();
         echo $view->render('views/logIn.html');
-    }
-//
-
-//    function summary()
-//    {
-//        //Write to Database
-//
-//        //Instantiate a view
-//        $view = new Template();
-//        echo $view->render("views/order-summary.html");
-//
-//        //Destroy session array
-//        session_destroy();
-//    }
-function admin()
-    {
-        //Instantiate a view
-        $view = new Template();
-        echo $view->render("views/admin.html");
+        $guest_id = uniqid('guest_');
+        $_SESSION['name'] = $guest_id;
+        $_SESSION['guestName'] = $guest_id;
     }
 }
