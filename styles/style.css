@@ -286,7 +286,7 @@ logo {
 }
 
 .navbar {
-    background-color: rgba(187, 181, 181);
+    background-color: rgba(#b377ca);
 }
 
 a.nav-link {
@@ -417,89 +417,6 @@ label.btn.btn-primary:hover {
 
 
 
-/* div#vintageCouch {
-    visibility: hidden;
-    display: none;
-}
-div#antiqueJugs {
-    visibility: hidden;
-    display: none;
-}
-div#wineJugs {
-    visibility: hidden;
-    display: none;
-}
-div#clearBall {
-    visibility: hidden;
-    display: none;
-}
-div#blueBall {
-    visibility: hidden;
-    display: none;
-}
-div#delivery {
-    visibility: hidden;
-    display: none;
-} */
-
-/* Breadcrumb CSS*/
-ol.breadcrumb {
-    --bs-breadcrumb-divider-color: white;
-}
-li.breadcrumb-item {
-    background-color: rgb(213,182,174);
-    padding: 15px 0px 15px 0px;
-}
-li.breadcrumb-item:last-of-type{
-    padding: 15px 15px 15px 0px;
-}
-li.breadcrumb-item:first-of-type{
-    padding: 15px 0px 15px 15px;
-}
-.breadcrumb-item a {
-    color: white;
-    text-decoration: none;
-    padding-right: 0;
-}
-li.breadcrumb-item i {
-    color:white;
-}
-li.breadcrumb-item a:hover {
-    color: rgba(255,255,255, .7);
-}
-li.breadcrumb-item a.is-active {
-    text-decoration: underline;
-    text-shadow: 1.5px 1.5px rgba(255,255,255, .3);
-}
-li.breadcrumb-item.visited{
-    padding-right: 15px; 
-}
-li.breadcrumb-item:not(.visited){
-    visibility:hidden;
-    display:none;
-}
-/*
-li.breadcrumb-item a.crumb:not(.is-active){
-    visibility:hidden; 
-    display:none
-}
-*/
-li.breadcrumb-item::before {
-    padding: none;
-}
-/*End Breadcrumb Styling*/
-
-/*Styling for uprade offer*/
-.container.upgradePack.text-center {
-    padding-top: 10px;
-}
-div.currentPack {
-    padding-bottom: 30px;
-}
-
-td a {
-    text-decoration: none;
-}
 
 /*login form styling*/
 form#login_form {
