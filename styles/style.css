@@ -3,7 +3,7 @@ h1, h2 {
     font-weight: 400;
     font-style: normal;
 
-    color: #54539c;
+    color:  rgb(131, 133, 221);
 }
 a {
     font-family: raleway,sans-serif;
@@ -184,7 +184,7 @@ h1, h2, h3{
     font-weight: 700;
     font-style: normal;
     text-align: center;
-    color: #54539c;
+    color:  rgb(131, 133, 221);
 }
 
 .text{
@@ -286,7 +286,7 @@ logo {
 }
 
 .navbar {
-    background-color: rgba(#b377ca);
+    background-color: rgba(200, 131, 221, 0.5);
 }
 
 a.nav-link {
