@@ -68,7 +68,7 @@ a#avail.nav-link:hover {
 }
 
 .package-link {
-    background-color: rgba(#54539c);
+    background-color: rgb(84, 83, 156);
     border-radius: 35px;
     padding: 20px 35px 20px 35px;
     color: rgb(240, 240, 240);
@@ -76,7 +76,7 @@ a#avail.nav-link:hover {
     font-size: small;
 }
 a.package-link:hover {
-    background-color: rgba(#54539c);
+    background-color: rgb(84, 83, 156);
     border-radius: 30px;
     color: white;
 }
